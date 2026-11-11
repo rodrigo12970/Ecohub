@@ -51,3 +51,48 @@
   <p class="hint">Tus búsquedas se abren en Ecosia, que planta árboles con la publicidad.</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoNet — Busca y planta</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* Fondo de respaldo si la imagen no carga */
+      background-color: #0b3d2e;
+    }
+
+    /* Capa oscura para que el texto se lea bien sobre la foto */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
+    }
+
+    h1 { font-size: 3.2em; margin-bottom: 5px; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+    .logo { color: #7ee787; }
+    p.tagline { font-size: 1.2em; margin-bottom: 25px; text-shadow: 1px 1px 6px rgba(0,0,0,0.7); }
+
+    form { display: flex; gap: 10px; }
+    input {
+      padding: 15px 22px;
+      width: 420px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1em;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
