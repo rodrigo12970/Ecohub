@@ -5,59 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EcoNet — Busca y planta</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0b3d2e, #14532d);
-      color: white;
-      text-align: center;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    h1 { font-size: 3em; margin-bottom: 5px; }
-    .logo { color: #7ee787; }
-    form { display: flex; gap: 10px; margin-top: 20px; }
-    input {
-      padding: 14px 20px;
-      width: 400px;
-      border-radius: 30px;
-      border: none;
-      font-size: 1em;
-    }
-    button {
-      padding: 14px 25px;
-      border-radius: 30px;
-      border: none;
-      background: #7ee787;
-      color: #0b3d2e;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    button:hover { background: #a5f3b0; }
-    .hint { margin-top: 15px; font-size: 0.9em; opacity: 0.8; }
-  </style>
-</head>
-<body>
-  <h1><span class="logo">Eco</span>Net</h1>
-  <p>Busca y planta árboles 🌱</p>
-  <form action="https://www.ecosia.org/search" method="get" target="_blank">
-    <input type="text" name="q" placeholder="Escribe tu búsqueda..." required>
-    <button type="submit">Buscar</button>
-  </form>
-  <p class="hint">Tus búsquedas se abren en Ecosia, que planta árboles con la publicidad.</p>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoNet — Busca y planta</title>
-  <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -96,3 +43,48 @@
       border: none;
       font-size: 1em;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    button {
+      padding: 15px 28px;
+      border-radius: 30px;
+      border: none;
+      background: #7ee787;
+      color: #0b3d2e;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    button:hover { background: #a5f3b0; }
+    .hint { margin-top: 18px; font-size: 0.9em; opacity: 0.9; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <h1><span class="logo">Eco</span>Net</h1>
+  <p class="tagline">Busca y planta árboles 🌱</p>
+  <form action="https://www.ecosia.org/search" method="get" target="_blank">
+    <input type="text" name="q" placeholder="Escribe tu búsqueda..." required>
+    <button type="submit">Buscar</button>
+  </form>
+  <p class="hint">Tu fondo cambia cada día con imágenes de naturaleza.</p>
+
+  <script>
+    // Fondo de naturaleza que se cambia cada día según la fecha
+    var imagenes = [
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80",  // bosque
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80",  // árbol
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80",  // bosque
+      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80",  // montaña y naturaleza
+      "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1920&q=80",  // paisaje
+      "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1920&q=80",  // bosque
+      "https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?w=1920&q=80"   // árboles
+    ];
+
+    // Usa la fecha del día para elegir una imagen distinta cada día
+    var dia = new Date().getDate();
+    var indice = dia % imagenes.length;
+    document.body.style.backgroundImage = "url('" + imagenes[indice] + "')";
+  </script>
+</body>
+</html>
