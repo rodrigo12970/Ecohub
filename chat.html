@@ -103,7 +103,7 @@
   </header>
 
   <div class="chat-box" id="chatBox">
-    <div class="msg bot">¡Hola! Soy EcoNet 🌱. Pregúntame sobre plantar árboles o escribe "buscar" seguido de algo para abrir una búsqueda en Ecosia.</div>
+    <div class="msg bot">¡Hola! Soy EcoNet 🌱. Pregúntame sobre árboles, ecología, el clima... o escribe "buscar" seguido de algo para abrirlo en Ecosia.</div>
   </div>
 
   <div class="input-area">
@@ -124,6 +124,7 @@
     function botReply(text) {
       var lower = text.toLowerCase();
 
+      // Buscar en Ecosia
       if (lower.indexOf("buscar") === 0) {
         var query = text.substring(7).trim();
         if (query) {
@@ -133,13 +134,60 @@
         return "Escribe \"buscar\" seguido de lo que quieras, por ejemplo: buscar árboles.";
       }
 
-      if (lower.indexOf("hola") !== -1) return "¡Hola! 🌱 ¿En qué te ayudo?";
-      if (lower.indexOf("árbol") !== -1 || lower.indexOf("arbol") !== -1) return "¡Los árboles son lo mejor! 🌳 Cada búsqueda en Ecosia ayuda a plantarlos.";
-      if (lower.indexOf("gracias") !== -1) return "¡De nada! 🌿 Aquí estoy para lo que necesites.";
-      if (lower.indexOf("quién eres") !== -1 || lower.indexOf("quien eres") !== -1) return "Soy EcoNet, tu buscador ecológico 🌱. Ayudo a encontrar información y a cuidar el planeta.";
-      if (lower.indexOf("adiós") !== -1 || lower.indexOf("adios") !== -1) return "¡Hasta pronto! 🌲 Cuida de ti y del planeta.";
+      // Saludos
+      if (lower.indexOf("hola") !== -1 || lower.indexOf("buenas") !== -1 || lower.indexOf("hey") !== -1)
+        return "¡Hola! 🌱 ¿En qué te ayudo hoy?";
+      if (lower.indexOf("buenos días") !== -1 || lower.indexOf("buenos dias") !== -1)
+        return "¡Buenos días! ☀️ Espero que tengas un gran día. ¿Te ayudo en algo?";
+      if (lower.indexOf("buenas noches") !== -1)
+        return "¡Buenas noches! 🌙 Descansa bien. ¡Hasta mañana!";
 
-      return "Buena pregunta 🤔. Prueba a escribir \"buscar\" seguido de tu tema (ej: buscar cambio climático) y te lo abro en Ecosia.";
+      // Quién eres
+      if (lower.indexOf("quién eres") !== -1 || lower.indexOf("quien eres") !== -1 || lower.indexOf("qué eres") !== -1 || lower.indexOf("que eres") !== -1)
+        return "Soy EcoNet 🌱, tu buscador ecológico. Ayudo a encontrar información y a cuidar el planeta. ¿Qué quieres saber?";
+
+      // Árboles y ecología
+      if (lower.indexOf("árbol") !== -1 || lower.indexOf("arbol") !== -1 || lower.indexOf("plantar") !== -1)
+        return "¡Los árboles son increíbles! 🌳 Absorben CO2, dan oxígeno y son el hogar de millones de especies. Cada búsqueda en Ecosia ayuda a plantarlos. ¿Quieres saber cómo plantar uno?";
+      if (lower.indexOf("reciclar") !== -1)
+        return "¡Reciclar es clave! ♻️ Separa papel, plástico, vidrio y orgánico. Reciclar una lata de aluminio ahorra energía para 3 horas de TV. ¿Quieres más consejos?";
+      if (lower.indexOf("plástico") !== -1 || lower.indexOf("plastico") !== -1)
+        return "El plástico tarda cientos de años en descomponerse. 🌊 Reduce su uso con botellas reutilizables y bolsas de tela. ¡Cada pequeño gesto cuenta!";
+      if (lower.indexOf("cambio climático") !== -1 || lower.indexOf("cambio climatico") !== -1 || lower.indexOf("calentamiento") !== -1)
+        return "El cambio climático es el mayor reto de nuestro tiempo 🌡️. Se debe sobre todo a los gases de efecto invernadero. Podemos ayudar ahorrando energía, reciclando y plantando árboles.";
+      if (lower.indexOf("agua") !== -1)
+        return "El agua es vida 💧. Cierra el grifo, dúchate en menos tiempo y reutiliza el agua siempre que puedas. ¡Cada gota cuenta!";
+      if (lower.indexOf("energía") !== -1 || lower.indexOf("energia") !== -1)
+        return "Ahorra energía 💡 apagando luces, usando bombillas LED y desenchufando aparatos. La energía solar y eólica son el futuro. ¿Quieres saber más?";
+      if (lower.indexOf("animal") !== -1)
+        return "¡Los animales son maravillosos! 🐾 Muchas especies están en peligro por la deforestación. Plantar árboles y cuidar los bosques les da un hogar.";
+
+      // Definiciones y cultura general
+      if (lower.indexOf("qué es") !== -1 || lower.indexOf("que es") !== -1 || lower.indexOf("definir") !== -1)
+        return "Buena pregunta 🤔. Escríbeme \"buscar\" seguido del término (ej: buscar fotosíntesis) y te lo explico con fuentes en Ecosia.";
+
+      // Estado de ánimo
+      if (lower.indexOf("bien") !== -1 && (lower.indexOf("cómo estás") !== -1 || lower.indexOf("como estas") !== -1))
+        return "¡Estoy genial, gracias por preguntar! 🌱 Y tú, ¿cómo estás?";
+      if (lower.indexOf("cómo estás") !== -1 || lower.indexOf("como estas") !== -1 || lower.indexOf("qué tal") !== -1 || lower.indexOf("que tal") !== -1)
+        return "¡Muy bien, gracias! 🌿 ¿Y tú qué tal? Cuéntame, ¿en qué te ayudo?";
+      if (lower.indexOf("gracias") !== -1 || lower.indexOf("graciass") !== -1)
+        return "¡De nada! 🌿 Aquí estoy para lo que necesites. ¡Cuida del planeta!";
+      if (lower.indexOf("te quiero") !== -1)
+        return "¡Yo también te aprecio! 🌱 Cuidemos juntos el planeta. 💚";
+
+      // Despedidas
+      if (lower.indexOf("adiós") !== -1 || lower.indexOf("adios") !== -1 || lower.indexOf("hasta luego") !== -1 || lower.indexOf("nos vemos") !== -1)
+        return "¡Hasta pronto! 🌲 Cuida de ti y del planeta. ¡Vuelve cuando quieras!";
+
+      // Chistes y diversión
+      if (lower.indexOf("chiste") !== -1)
+        return "¿Por qué los árboles no usan internet? ¡Porque no tienen ramas... de red! 🌳😂 ¿Quieres otro?";
+      if (lower.indexOf("juego") !== -1 || lower.indexOf("aburrido") !== -1)
+        return "¿Aburrido? Prueba a escribirme \"buscar\" + algo curioso, como: buscar datos curiosos sobre la naturaleza. ¡Te sorprenderás! 🎲";
+
+      // Respuesta por defecto
+      return "Interesante 🤔. No tengo una respuesta preparada para eso, pero escríbeme \"buscar\" seguido de tu tema (ej: buscar fotosíntesis) y te lo abro en Ecosia con fuentes de verdad.";
     }
 
     function sendMessage() {
@@ -159,3 +207,4 @@
   </script>
 </body>
 </html>
+
