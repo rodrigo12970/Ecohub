@@ -9,16 +9,26 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0b3d2e, #14532d);
       color: white;
       height: 100vh;
       display: flex;
       flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #14532d;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: -1;
     }
 
     header {
       padding: 18px 25px;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.4);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -61,7 +71,7 @@
 
     .input-area {
       padding: 15px 20px;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.4);
       display: flex;
       gap: 10px;
     }
@@ -85,6 +95,7 @@
   </style>
 </head>
 <body>
+  <div class="overlay"></div>
   <header>
     <h1><span class="logo">Eco</span>Net Chat</h1>
     <a class="back" href="index.html">← Volver</a>
@@ -100,6 +111,20 @@
   </div>
 
   <script>
+    // FONDO DEL CHAT: montañas y atardecer (diferente a la portada)
+    var imagenesChat = [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80",
+      "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1920&q=80",
+      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1920&q=80",
+      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1920&q=80",
+      "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1920&q=80",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80"
+    ];
+    var diaChat = new Date().getDate();
+    var indiceChat = diaChat % imagenesChat.length;
+    document.body.style.backgroundImage = "url('" + imagenesChat[indiceChat] + "')";
+
     function addMsg(text, who) {
       var box = document.getElementById("chatBox");
       var div = document.createElement("div");
