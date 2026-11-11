@@ -19,11 +19,9 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      /* Fondo de respaldo si la imagen no carga */
       background-color: #0b3d2e;
     }
 
-    /* Capa oscura para que el texto se lea bien sobre la foto */
     .overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -56,6 +54,15 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     button:hover { background: #a5f3b0; }
+
+    .chat-btn {
+      margin-top: 20px;
+      background: transparent;
+      border: 2px solid #7ee787;
+      color: #7ee787;
+    }
+    .chat-btn:hover { background: #7ee787; color: #0b3d2e; }
+
     .hint { margin-top: 18px; font-size: 0.9em; opacity: 0.9; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); }
   </style>
 </head>
@@ -67,24 +74,23 @@
     <input type="text" name="q" placeholder="Escribe tu búsqueda..." required>
     <button type="submit">Buscar</button>
   </form>
+  <a href="chat.html"><button class="chat-btn" type="button">💬 Chatea con EcoNet</button></a>
   <p class="hint">Tu fondo cambia cada día con imágenes de naturaleza.</p>
 
   <script>
-    // Fondo de naturaleza que se cambia cada día según la fecha
     var imagenes = [
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80",  // bosque
-      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80",  // árbol
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80",  // bosque
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80",  // montaña y naturaleza
-      "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1920&q=80",  // paisaje
-      "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1920&q=80",  // bosque
-      "https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?w=1920&q=80"   // árboles
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80",
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80",
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80",
+      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80",
+      "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1920&q=80",
+      "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1920&q=80",
+      "https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?w=1920&q=80"
     ];
-
-    // Usa la fecha del día para elegir una imagen distinta cada día
     var dia = new Date().getDate();
     var indice = dia % imagenes.length;
     document.body.style.backgroundImage = "url('" + imagenes[indice] + "')";
   </script>
 </body>
 </html>
+
