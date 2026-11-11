@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rodrigo12970.github.io/Ecohub/sitemap.xml
